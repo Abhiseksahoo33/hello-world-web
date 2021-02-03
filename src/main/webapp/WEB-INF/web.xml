@@ -2,6 +2,20 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
+<!-- deployment descriptor to be read by the server
+   URL: CLASS
+   ?students :com.java.servlets.StudentServlet
+   -->
+
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+<servlet>
+  <servlet-name>studentServlet</servlet-name>
+  <servlet-class>com.java.servlets.StudentServlet</servlet-class>
+</servlet>
+  <servlet-mapping>
+    <servlet-name>studentServlet</servlet-name>
+    <url-pattern>/students</url-pattern>
+  </servlet-mapping>
+
 </web-app>
