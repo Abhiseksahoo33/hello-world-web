@@ -1,12 +1,15 @@
 package com.java.servlets;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextAttributeEvent;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
 public class StudentServlet extends HttpServlet {
     //GET
@@ -54,5 +57,33 @@ public class StudentServlet extends HttpServlet {
         getServletContext().log("service is executing "+this.getClass());
         super.service(req, resp);// service will execute first than doGET
         // service will executed the number times we refresh or send request tp the server
+        displayContextAndConfig();
+    }
+    //can call any where inside the life cycle method or inside doXXX
+    private void displayContextAndConfig()
+    {
+        ServletContext servletContext = getServletContext();
+        servletContext = getServletConfig().getServletContext();
+
+        ServletConfig servletConfig = getServletConfig();
+
+        servletContext.log("------------print servlet context key value -----");
+        Enumeration<String> contextKeys= servletContext.getInitParameterNames();
+        while (contextKeys.hasMoreElements())
+        {
+            String key= contextKeys.nextElement();
+            String value = servletContext.getInitParameter(key);
+            servletContext.log(" key " +key+"  |  value  "+value);
+        }
+
+        servletContext.log("------------print servlet config key value -----");
+        Enumeration<String> configKeys= servletConfig.getInitParameterNames();
+        while (configKeys.hasMoreElements())
+        {
+            String key= configKeys.nextElement();
+            String value = servletConfig.getInitParameter(key);
+            servletContext.log(" key " +key+"  |  value  "+value);
+        }
+
     }
 }
