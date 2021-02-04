@@ -9,9 +9,27 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <!-- servlet context   -->
+  <context-param>
+    <param-name>c1</param-name>
+    <param-value>100</param-value>
+  </context-param>
+  <context-param>
+    <param-name>c2</param-name>
+    <param-value>200</param-value>
+  </context-param>
 <servlet>
   <servlet-name>studentServlet</servlet-name>
   <servlet-class>com.java.servlets.StudentServlet</servlet-class>
+  <!-- servlet config -->
+  <init-param>
+    <param-name>x</param-name>
+    <param-value>10</param-value>
+  </init-param>
+  <init-param>
+    <param-name>y</param-name>
+    <param-value>20</param-value>
+  </init-param>
 </servlet>
   <servlet-mapping>
     <servlet-name>studentServlet</servlet-name>
