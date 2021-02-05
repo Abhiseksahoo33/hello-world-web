@@ -2,7 +2,6 @@ package com.java.servlets;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletContextAttributeEvent;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +21,7 @@ public class StudentServlet extends HttpServlet {
         getServletContext().log("current thread "+Thread.currentThread());
         PrintWriter writer = resp.getWriter();
         writer.write("Welcome to web app"+this.getClass());
+       // doXXX will execute the number of times we send request to server.
     }
 
     public StudentServlet()
