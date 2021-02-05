@@ -19,8 +19,9 @@
     <param-value>200</param-value>
   </context-param>
 <servlet>
-  <servlet-name>EmployeeServlet</servlet-name>
-  <servlet-class>com.java.servlets.EmployeeServlet</servlet-class>
+  <servlet-name>StudentServlet</servlet-name>
+  <servlet-class>com.java.servlets.StudentServlet</servlet-class>
+
   <!-- servlet config -->
   <init-param>
     <param-name>x</param-name>
@@ -31,6 +32,15 @@
     <param-value>20</param-value>
   </init-param>
 </servlet>
+  <servlet>
+    <servlet-name>EmployeeServlet</servlet-name>
+    <servlet-class>com.java.servlets.EmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentServlet</servlet-name>
+    <url-pattern>/students</url-pattern>
+  </servlet-mapping>
+
   <servlet-mapping>
     <servlet-name>EmployeeServlet</servlet-name>
     <url-pattern>/employee</url-pattern>
